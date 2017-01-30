@@ -1,0 +1,22 @@
+
+
+# sequence (e.g., text, path through a document object)
+# candidate_boundries: sequence -> candidate_boundry_idx_iter
+# context: (sequence, index) -> context
+# candidate_boundry_contexts: sequence -> (index, couniterable (iterates over the candidate_boundry_context objects in order), e.g., [\.?!] in text or paragraphs in a docx with index into the original sequence)
+# labeled_boundry_iter: (iterates over candidate_boundry_contexts with label mark up, outputs (candidate_boundry_context, label) tuple)
+## NOTE: candidate_boundry_object needs to contain enough information to create feature vector (e.g., need to be able to retrieve any context from the sequence)
+# feature_extractor: candidate_boundry_contexts -> feature vector 
+## NOTE: should ignore labeling mark-up
+# segmenter (boundry_clf, sequence, candidate_boundry_iter_fn)
+
+
+Example: Sentences Boundries
+# sequence: text
+# candidate_boundryies: index into texts at [\.!?] etc
+# labeled_candidate_boundries: (index, label) into candidate_boundries with labeles # should we force all candidate_boundries to be considered labeled negatively if no label in and the sequence is a training document
+# context: text -w and +w words surrounding the candidate_boundry
+# feature_extractor: tfidf of window before, tfidf of window after, punctuation information, capitalization information, 
+# segmentor ()
+
+# seq -> context dataset -> feature dataset for training
